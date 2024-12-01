@@ -21,7 +21,7 @@ void IntBinaryTree::insertNode(string num) {
    TreeNode *newNode;      // Pointer to a new node.
 
    // Create a new node and store num in it.
-   *newNode = new TreeNode;
+   newNode = new TreeNode;
    newNode->value = num;
    newNode->left = newNode->right = nullptr;
    
@@ -61,13 +61,13 @@ bool IntBinaryTree::searchNode(string num) {
 
 // remove calls deleteNode to delete the      
 // node whose value member is the same as num.
-void IntBinaryTree::remove(int num) {
+void IntBinaryTree::remove(string num) {
    deleteNode(num, root);
 }
 
 // deleteNode deletes the node whose value 
 // member is the same as num.              
-void IntBinaryTree::deleteNode(int num, TreeNode *&nodePtr) {
+void IntBinaryTree::deleteNode(string num, TreeNode *&nodePtr) {
    if (num < nodePtr->value)
       deleteNode(num, nodePtr->left);
    else if (num > nodePtr->value)
