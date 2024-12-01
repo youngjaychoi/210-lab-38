@@ -6,7 +6,7 @@ using namespace std;
 int main() {
     IntBinaryTree tree;
     ifstream inFile("codes.txt");
-    string code;
+    string record;
     int choice;
 
     if (!inFile.open()) {
@@ -14,10 +14,51 @@ int main() {
         return 1;
     }
 
-    while (inFile >> code) {
-        tree.insertNode(code);
+    while (inFile >> record) {
+        tree.insertNode(record);
     }
     
+    do {
+        cout << "\nMenu:\n";
+        cout << "1. Add a record\n";
+        cout << "2. Delete a record\n";
+        cout << "3. Search a record\n";
+        cout << "4. Display records in-order\n";
+        cout << "5. Display records pre-order\n";
+        cout << "6. Display records post-order\n";
+        cout << "7. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1: {
+                cout << "Enter a record to add: ";
+                cin >> record;
+                tree.insertNode(record);
+                break;
+            }
+            case 2: {
+                cout << "Enter a record to delete: ";
+                cin >> record;
+                tree.remove(record);
+                break;
+            }
+            case 3: {
+                cout << "Enter a record to search: ";
+                cin >> record;
+                if (tree.searchNode(record)) {
+                    cout << "Record found"
+                }
+            }
+        }
+
+
+
+
+
+
+
+    }
 
 
 
