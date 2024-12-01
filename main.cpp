@@ -9,7 +9,7 @@ int main() {
     string record;
     int choice;
 
-    if (!inFile.open()) {
+    if (!inFile) {
         cout << "file not opened." << endl;
         return 1;
     }
@@ -47,23 +47,36 @@ int main() {
                 cout << "Enter a record to search: ";
                 cin >> record;
                 if (tree.searchNode(record)) {
-                    cout << "Record found"
+                    cout << "Record found" << endl;
+                } else {
+                    cout << "Record not found" << endl;
                 }
+                break;
+            }
+            case 4: {
+                cout << "Records in-order:" << endl;
+                tree.displayInOrder();
+                break;
+            }
+            case 5: {
+                cout << "Records pre-order:" << endl;
+                tree.displayPreOrder();
+                break;
+            }
+            case 6: {
+                cout << "Records post-order:" << endl;
+                tree.displayPostOrder();
+                break;
+            }
+            case 7: {
+                cout << "Exiting.." << endl;
+                break;
+            }
+            default: {
+                cout << "Invalid choice, enter again" << endl;
             }
         }
-
-
-
-
-
-
-
-    }
-
-
-
-
-
+    } while (choice != 7);
 
     inFile.close();
 
